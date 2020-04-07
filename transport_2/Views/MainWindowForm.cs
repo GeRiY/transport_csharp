@@ -133,18 +133,18 @@ namespace transport_2.Views
             //MainWindowForm.hide();
         }
 
-        private void csomagStátuszToolStripMenuItem_Click(object sender, EventArgs e)
+        private void transferstatusToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Form childForm = new userForm();
             //childForm.MdiParent = this;
             //childForm.Show();
             panel1.Controls.Clear();
-            Form packageStatusForm = new packageStatusForm();
-            packageStatusForm.FormBorderStyle = FormBorderStyle.None;
-            packageStatusForm.AutoScroll = true;
-            packageStatusForm.TopLevel = false;
-            panel1.Controls.Add(packageStatusForm);
-            packageStatusForm.Show();
+            Form trasferStatusForm = new trasferStatusForm();
+            trasferStatusForm.FormBorderStyle = FormBorderStyle.None;
+            trasferStatusForm.AutoScroll = true;
+            trasferStatusForm.TopLevel = false;
+            panel1.Controls.Add(trasferStatusForm);
+            trasferStatusForm.Show();
             //MainWindowForm.hide();
         }
     }
