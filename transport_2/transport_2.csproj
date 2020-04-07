@@ -184,7 +184,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon.ico" />
-    <None Include="Images\fromStorage.png" />
+    <None Include="Icons\check.png" />
+    <None Include="Icons\login.png" />
+    <None Include="Icons\logout.png" />
     <Content Include="Models\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>

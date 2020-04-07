@@ -74,5 +74,33 @@ namespace transport_2.Views
             userForm.Show();
             //MainWindowForm.hide();
         }
+
+        private void toolbarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (toolbar.Visible)
+            {
+                this.toolbarButton.Image = null;
+                toolbar.Visible = false;
+            }
+            else 
+            {
+                this.toolbarButton.Image = global::transport_2.Properties.Resources.check;
+                toolbar.Visible = true;
+            }
+        }
+
+        private void statusBarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (statusbar.Visible)
+            {
+                this.statusbarButton.Image = null;
+                statusbar.Visible = false;
+            }
+            else
+            {
+                this.statusbarButton.Image = global::transport_2.Properties.Resources.check;
+                statusbar.Visible = true;
+            }
+        }
     }
 }

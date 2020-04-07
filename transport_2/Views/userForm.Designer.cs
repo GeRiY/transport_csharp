@@ -44,12 +44,16 @@
             this.keresestoolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.KeresestoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.szerkesztesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.torlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ugyfelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -63,9 +67,9 @@
             this.panel1.Controls.Add(this.OsszesLabel);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 407);
+            this.panel1.Location = new System.Drawing.Point(0, 401);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 43);
+            this.panel1.Size = new System.Drawing.Size(804, 43);
             this.panel1.TabIndex = 7;
             // 
             // OsszesLabel
@@ -73,7 +77,7 @@
             this.OsszesLabel.AutoSize = true;
             this.OsszesLabel.Location = new System.Drawing.Point(12, 12);
             this.OsszesLabel.Name = "OsszesLabel";
-            this.OsszesLabel.Size = new System.Drawing.Size(59, 13);
+            this.OsszesLabel.Size = new System.Drawing.Size(79, 17);
             this.OsszesLabel.TabIndex = 3;
             this.OsszesLabel.Text = "Összesen: ";
             // 
@@ -91,7 +95,7 @@
             this.tableLayoutPanel1.Controls.Add(this.LastButton, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.NextButton, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 2, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(209, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(211, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -142,14 +146,15 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(180, 14);
+            this.label1.Location = new System.Drawing.Point(178, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 13);
+            this.label1.Size = new System.Drawing.Size(28, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "0/0";
             // 
             // toolStrip1
             // 
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TorlestoolStripButton,
@@ -159,40 +164,41 @@
             this.KeresestoolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(804, 27);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // TorlestoolStripButton
             // 
+            this.TorlestoolStripButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.TorlestoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TorlestoolStripButton.Name = "TorlestoolStripButton";
-            this.TorlestoolStripButton.Size = new System.Drawing.Size(66, 22);
+            this.TorlestoolStripButton.Size = new System.Drawing.Size(82, 24);
             this.TorlestoolStripButton.Text = "Inaktiválás";
             // 
             // mentestoolStripButton
             // 
             this.mentestoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mentestoolStripButton.Name = "mentestoolStripButton";
-            this.mentestoolStripButton.Size = new System.Drawing.Size(66, 22);
+            this.mentestoolStripButton.Size = new System.Drawing.Size(82, 24);
             this.mentestoolStripButton.Text = "Módosítás";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // keresestoolStripTextBox
             // 
             this.keresestoolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.keresestoolStripTextBox.Name = "keresestoolStripTextBox";
-            this.keresestoolStripTextBox.Size = new System.Drawing.Size(200, 25);
+            this.keresestoolStripTextBox.Size = new System.Drawing.Size(200, 27);
             // 
             // KeresestoolStripButton
             // 
             this.KeresestoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.KeresestoolStripButton.Name = "KeresestoolStripButton";
-            this.KeresestoolStripButton.Size = new System.Drawing.Size(50, 22);
+            this.KeresestoolStripButton.Size = new System.Drawing.Size(63, 24);
             this.KeresestoolStripButton.Text = "Keresés";
             // 
             // dataGridView1
@@ -201,47 +207,30 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.emailDataGridViewTextBoxColumn});
+            this.emailDataGridViewTextBoxColumn,
+            this.first_name,
+            this.last_name,
+            this.role,
+            this.storage});
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.DataSource = this.ugyfelBindingSource;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.Location = new System.Drawing.Point(0, 25);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(775, 376);
+            this.dataGridView1.Size = new System.Drawing.Size(804, 373);
             this.dataGridView1.TabIndex = 5;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.szerkesztesToolStripMenuItem,
-            this.torlesToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(133, 48);
-            // 
-            // szerkesztesToolStripMenuItem
-            // 
-            this.szerkesztesToolStripMenuItem.Name = "szerkesztesToolStripMenuItem";
-            this.szerkesztesToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.szerkesztesToolStripMenuItem.Text = "Szerkesztés";
-            // 
-            // torlesToolStripMenuItem
-            // 
-            this.torlesToolStripMenuItem.Name = "torlesToolStripMenuItem";
-            this.torlesToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.torlesToolStripMenuItem.Text = "Törlés";
-            // 
-            // ugyfelBindingSource
-            // 
-            this.ugyfelBindingSource.DataSource = typeof(transport_2.Models.fos_user);
             // 
             // id
             // 
             this.id.DataPropertyName = "id";
             this.id.HeaderText = "id";
+            this.id.MinimumWidth = 6;
             this.id.Name = "id";
             // 
             // emailDataGridViewTextBoxColumn
@@ -250,15 +239,69 @@
             this.emailDataGridViewTextBoxColumn.HeaderText = "username";
             this.emailDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // first_name
+            // 
+            this.first_name.DataPropertyName = "first_name";
+            this.first_name.HeaderText = "first_name";
+            this.first_name.MinimumWidth = 6;
+            this.first_name.Name = "first_name";
+            // 
+            // last_name
+            // 
+            this.last_name.DataPropertyName = "last_name";
+            this.last_name.HeaderText = "last_name";
+            this.last_name.MinimumWidth = 6;
+            this.last_name.Name = "last_name";
+            // 
+            // role
+            // 
+            this.role.DataPropertyName = "role";
+            this.role.HeaderText = "role";
+            this.role.MinimumWidth = 6;
+            this.role.Name = "role";
+            // 
+            // storage
+            // 
+            this.storage.DataPropertyName = "storage";
+            this.storage.HeaderText = "storage";
+            this.storage.MinimumWidth = 6;
+            this.storage.Name = "storage";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.szerkesztesToolStripMenuItem,
+            this.torlesToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(154, 52);
+            // 
+            // szerkesztesToolStripMenuItem
+            // 
+            this.szerkesztesToolStripMenuItem.Name = "szerkesztesToolStripMenuItem";
+            this.szerkesztesToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
+            this.szerkesztesToolStripMenuItem.Text = "Szerkesztés";
+            // 
+            // torlesToolStripMenuItem
+            // 
+            this.torlesToolStripMenuItem.Name = "torlesToolStripMenuItem";
+            this.torlesToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
+            this.torlesToolStripMenuItem.Text = "Törlés";
+            // 
+            // ugyfelBindingSource
+            // 
+            this.ugyfelBindingSource.DataSource = typeof(transport_2.Models.fos_user);
             // 
             // userForm
             // 
-            //this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            //this.ClientSize = new System.Drawing.Size(800, 450);
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(804, 444);
+            this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);
@@ -310,5 +353,9 @@
         private System.Windows.Forms.ToolStripMenuItem torlesToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn first_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn last_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn role;
+        private System.Windows.Forms.DataGridViewTextBoxColumn storage;
     }
 }
