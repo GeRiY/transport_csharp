@@ -132,5 +132,20 @@ namespace transport_2.Views
             packageForm.Show();
             //MainWindowForm.hide();
         }
+
+        private void csomagStátuszToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Form childForm = new userForm();
+            //childForm.MdiParent = this;
+            //childForm.Show();
+            panel1.Controls.Clear();
+            Form packageStatusForm = new packageStatusForm();
+            packageStatusForm.FormBorderStyle = FormBorderStyle.None;
+            packageStatusForm.AutoScroll = true;
+            packageStatusForm.TopLevel = false;
+            panel1.Controls.Add(packageStatusForm);
+            packageStatusForm.Show();
+            //MainWindowForm.hide();
+        }
     }
 }

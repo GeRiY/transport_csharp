@@ -112,6 +112,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Partials\package-Partial.cs" />
+    <Compile Include="Models\Partials\PackageStatus-Partial.cs" />
     <Compile Include="Models\Partials\user-Partial.cs" />
     <Compile Include="Models\position.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -127,14 +128,17 @@
     </Compile>
     <Compile Include="Presenters\packageToGetFromCustomerPresenter.cs" />
     <Compile Include="Presenters\packagePresenter.cs" />
+    <Compile Include="Presenters\PackageStatusPresenter.cs" />
     <Compile Include="Presenters\userPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\packageToGetFromCustomerRepository.cs" />
     <Compile Include="Repositories\packageOnMyNameRepository.cs" />
+    <Compile Include="Repositories\PackageStatusRepository.cs" />
     <Compile Include="Repositories\userRepository.cs" />
     <Compile Include="ViewInterfaces\IDataGridList.cs" />
     <Compile Include="ViewInterfaces\IPackageView.cs" />
+    <Compile Include="ViewInterfaces\IPackageStatusView.cs" />
     <Compile Include="ViewInterfaces\IUserView.cs" />
     <Compile Include="Views\MainWindowForm.cs">
       <SubType>Form</SubType>
@@ -153,6 +157,12 @@
     </Compile>
     <Compile Include="Views\packageForm.Designer.cs">
       <DependentUpon>packageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PackageStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PackageStatusForm.Designer.cs">
+      <DependentUpon>PackageStatusForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\userForm.cs">
       <SubType>Form</SubType>
@@ -178,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\packageForm.resx">
       <DependentUpon>packageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PackageStatusForm.resx">
+      <DependentUpon>PackageStatusForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\userForm.resx">
       <DependentUpon>userForm.cs</DependentUpon>
