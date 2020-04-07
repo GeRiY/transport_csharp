@@ -1,6 +1,6 @@
 ﻿namespace transport_2.Views
 {
-    partial class userForm
+    partial class packageForm
     {
         /// <summary>
         /// Required designer variable.
@@ -38,22 +38,24 @@
             this.NextButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.TorlestoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.mentestoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.keresestoolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.KeresestoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.szerkesztesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.torlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ugyfelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.target_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transfer_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.handler = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.width = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.height = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.length = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -67,9 +69,9 @@
             this.panel1.Controls.Add(this.OsszesLabel);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 401);
+            this.panel1.Location = new System.Drawing.Point(0, 459);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(804, 43);
+            this.panel1.Size = new System.Drawing.Size(986, 43);
             this.panel1.TabIndex = 7;
             // 
             // OsszesLabel
@@ -95,7 +97,7 @@
             this.tableLayoutPanel1.Controls.Add(this.LastButton, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.NextButton, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 2, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(211, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(302, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -157,24 +159,15 @@
             this.toolStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TorlestoolStripButton,
             this.mentestoolStripButton,
             this.toolStripSeparator1,
             this.keresestoolStripTextBox,
             this.KeresestoolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(804, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(986, 27);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // TorlestoolStripButton
-            // 
-            this.TorlestoolStripButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.TorlestoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TorlestoolStripButton.Name = "TorlestoolStripButton";
-            this.TorlestoolStripButton.Size = new System.Drawing.Size(82, 24);
-            this.TorlestoolStripButton.Text = "Inaktiválás";
             // 
             // mentestoolStripButton
             // 
@@ -203,8 +196,8 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -212,54 +205,22 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.emailDataGridViewTextBoxColumn,
-            this.first_name,
-            this.last_name,
-            this.role,
-            this.storage});
+            this.target_address,
+            this.transfer_status,
+            this.handler,
+            this.owner,
+            this.courier,
+            this.width,
+            this.height,
+            this.length});
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.DataSource = this.ugyfelBindingSource;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.Location = new System.Drawing.Point(0, 25);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(804, 373);
+            this.dataGridView1.Size = new System.Drawing.Size(986, 431);
             this.dataGridView1.TabIndex = 5;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            // 
-            // first_name
-            // 
-            this.first_name.DataPropertyName = "first_name";
-            this.first_name.HeaderText = "first_name";
-            this.first_name.MinimumWidth = 6;
-            this.first_name.Name = "first_name";
-            // 
-            // last_name
-            // 
-            this.last_name.DataPropertyName = "last_name";
-            this.last_name.HeaderText = "last_name";
-            this.last_name.MinimumWidth = 6;
-            this.last_name.Name = "last_name";
-            // 
-            // role
-            // 
-            this.role.DataPropertyName = "role";
-            this.role.HeaderText = "role";
-            this.role.MinimumWidth = 6;
-            this.role.Name = "role";
-            // 
-            // storage
-            // 
-            this.storage.DataPropertyName = "storage";
-            this.storage.HeaderText = "storage";
-            this.storage.MinimumWidth = 6;
-            this.storage.Name = "storage";
             // 
             // contextMenuStrip1
             // 
@@ -283,31 +244,86 @@
             this.torlesToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
             this.torlesToolStripMenuItem.Text = "Törlés";
             // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "username";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "username";
-            this.emailDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
             // ugyfelBindingSource
             // 
-            this.ugyfelBindingSource.DataSource = typeof(transport_2.Models.fos_user);
+            this.ugyfelBindingSource.DataSource = typeof(transport_2.Models.package);
             // 
-            // userForm
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            // 
+            // target_address
+            // 
+            this.target_address.DataPropertyName = "target_address";
+            this.target_address.HeaderText = "target_address";
+            this.target_address.MinimumWidth = 6;
+            this.target_address.Name = "target_address";
+            // 
+            // transfer_status
+            // 
+            this.transfer_status.DataPropertyName = "transfer_status";
+            this.transfer_status.HeaderText = "transfer_status";
+            this.transfer_status.MinimumWidth = 6;
+            this.transfer_status.Name = "transfer_status";
+            // 
+            // handler
+            // 
+            this.handler.DataPropertyName = "handler";
+            this.handler.HeaderText = "handler";
+            this.handler.MinimumWidth = 6;
+            this.handler.Name = "handler";
+            // 
+            // owner
+            // 
+            this.owner.DataPropertyName = "owner";
+            this.owner.HeaderText = "owner";
+            this.owner.MinimumWidth = 6;
+            this.owner.Name = "owner";
+            // 
+            // courier
+            // 
+            this.courier.DataPropertyName = "courier";
+            this.courier.HeaderText = "courier";
+            this.courier.MinimumWidth = 6;
+            this.courier.Name = "courier";
+            // 
+            // width
+            // 
+            this.width.DataPropertyName = "width";
+            this.width.HeaderText = "width";
+            this.width.MinimumWidth = 6;
+            this.width.Name = "width";
+            // 
+            // height
+            // 
+            this.height.DataPropertyName = "height";
+            this.height.HeaderText = "height";
+            this.height.MinimumWidth = 6;
+            this.height.Name = "height";
+            // 
+            // length
+            // 
+            this.length.DataPropertyName = "length";
+            this.length.HeaderText = "length";
+            this.length.MinimumWidth = 6;
+            this.length.Name = "length";
+            // 
+            // packageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(804, 444);
+            this.ClientSize = new System.Drawing.Size(986, 502);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "userForm";
+            this.Name = "packageForm";
             this.Text = "Felhasználók";
-            this.Load += new System.EventHandler(this.userForm_Load);
+            this.Load += new System.EventHandler(this.packageForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -337,7 +353,6 @@
         private System.Windows.Forms.ToolStripTextBox keresestoolStripTextBox;
         private System.Windows.Forms.ToolStripButton KeresestoolStripButton;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vezeteknevDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn keresztnevDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn varosDataGridViewTextBoxColumn;
@@ -347,15 +362,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pontDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource ugyfelBindingSource;
         private System.Windows.Forms.Label OsszesLabel;
-        private System.Windows.Forms.ToolStripButton TorlestoolStripButton;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem szerkesztesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem torlesToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn first_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn last_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn role;
-        private System.Windows.Forms.DataGridViewTextBoxColumn storage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn target_address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transfer_status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn handler;
+        private System.Windows.Forms.DataGridViewTextBoxColumn owner;
+        private System.Windows.Forms.DataGridViewTextBoxColumn courier;
+        private System.Windows.Forms.DataGridViewTextBoxColumn width;
+        private System.Windows.Forms.DataGridViewTextBoxColumn height;
+        private System.Windows.Forms.DataGridViewTextBoxColumn length;
     }
 }

@@ -65,7 +65,7 @@ namespace transport_2.Views
             //Form childForm = new userForm();
             //childForm.MdiParent = this;
             //childForm.Show();
-
+            panel1.Controls.Clear();
             Form userForm = new userForm();
             userForm.FormBorderStyle = FormBorderStyle.None;
             userForm.AutoScroll = true;
@@ -101,6 +101,36 @@ namespace transport_2.Views
                 this.statusbarButton.Image = global::transport_2.Properties.Resources.check;
                 statusbar.Visible = true;
             }
+        }
+
+        private void nevemenLévőCsomagokToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Form childForm = new userForm();
+            //childForm.MdiParent = this;
+            //childForm.Show();
+            panel1.Controls.Clear();
+            Form packageForm = new packageForm();
+            packageForm.FormBorderStyle = FormBorderStyle.None;
+            packageForm.AutoScroll = true;
+            packageForm.TopLevel = false;
+            panel1.Controls.Add(packageForm);
+            packageForm.Show();
+            //MainWindowForm.hide();
+        }
+
+        private void ügyféltőlFelvehetőCsomagokToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Form childForm = new userForm();
+            //childForm.MdiParent = this;
+            //childForm.Show();
+            panel1.Controls.Clear();
+            Form packageForm = new packageFromCustomerForm();
+            packageForm.FormBorderStyle = FormBorderStyle.None;
+            packageForm.AutoScroll = true;
+            packageForm.TopLevel = false;
+            panel1.Controls.Add(packageForm);
+            packageForm.Show();
+            //MainWindowForm.hide();
         }
     }
 }

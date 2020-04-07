@@ -42,12 +42,10 @@
             this.felhasználókToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.felhasználóListaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolbar = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.statusbar = new System.Windows.Forms.StatusStrip();
             this.statusbarLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
-            this.toolbar.SuspendLayout();
             this.statusbar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,20 +80,20 @@
             // 
             this.bejelentkezésToolStripMenuItem.Image = global::transport_2.Properties.Resources.login;
             this.bejelentkezésToolStripMenuItem.Name = "bejelentkezésToolStripMenuItem";
-            this.bejelentkezésToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bejelentkezésToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
             this.bejelentkezésToolStripMenuItem.Text = "Bejelentkezés";
             // 
             // kijelentkezésToolStripMenuItem
             // 
             this.kijelentkezésToolStripMenuItem.Image = global::transport_2.Properties.Resources.logout;
             this.kijelentkezésToolStripMenuItem.Name = "kijelentkezésToolStripMenuItem";
-            this.kijelentkezésToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.kijelentkezésToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
             this.kijelentkezésToolStripMenuItem.Text = "Kijelentkezés";
             // 
             // kilépélsToolStripMenuItem
             // 
             this.kilépélsToolStripMenuItem.Name = "kilépélsToolStripMenuItem";
-            this.kilépélsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.kilépélsToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
             this.kilépélsToolStripMenuItem.Text = "Kilépés";
             this.kilépélsToolStripMenuItem.Click += new System.EventHandler(this.kilépélsToolStripMenuItem_Click);
             // 
@@ -112,7 +110,7 @@
             // 
             this.toolbarButton.Image = global::transport_2.Properties.Resources.check;
             this.toolbarButton.Name = "toolbarButton";
-            this.toolbarButton.Size = new System.Drawing.Size(224, 26);
+            this.toolbarButton.Size = new System.Drawing.Size(158, 26);
             this.toolbarButton.Text = "Toolbar";
             this.toolbarButton.Click += new System.EventHandler(this.toolbarToolStripMenuItem_Click);
             // 
@@ -120,7 +118,7 @@
             // 
             this.statusbarButton.Image = global::transport_2.Properties.Resources.check;
             this.statusbarButton.Name = "statusbarButton";
-            this.statusbarButton.Size = new System.Drawing.Size(224, 26);
+            this.statusbarButton.Size = new System.Drawing.Size(158, 26);
             this.statusbarButton.Text = "Status Bar";
             this.statusbarButton.Click += new System.EventHandler(this.statusBarToolStripMenuItem_Click);
             // 
@@ -131,7 +129,7 @@
             this.nevemenLévőCsomagokToolStripMenuItem,
             this.ügyféltőlFelvehetőCsomagokToolStripMenuItem});
             this.csomagToolStripMenuItem.Name = "csomagToolStripMenuItem";
-            this.csomagToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
+            this.csomagToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.csomagToolStripMenuItem.Text = "Csomagok";
             this.csomagToolStripMenuItem.Click += new System.EventHandler(this.csomagToolStripMenuItem_Click);
             // 
@@ -141,6 +139,7 @@
             this.nevemenLévőCsomagokToolStripMenuItem.Name = "nevemenLévőCsomagokToolStripMenuItem";
             this.nevemenLévőCsomagokToolStripMenuItem.Size = new System.Drawing.Size(291, 26);
             this.nevemenLévőCsomagokToolStripMenuItem.Text = "Nevemen lévő csomagok";
+            this.nevemenLévőCsomagokToolStripMenuItem.Click += new System.EventHandler(this.nevemenLévőCsomagokToolStripMenuItem_Click);
             // 
             // ügyféltőlFelvehetőCsomagokToolStripMenuItem
             // 
@@ -148,6 +147,7 @@
             this.ügyféltőlFelvehetőCsomagokToolStripMenuItem.Name = "ügyféltőlFelvehetőCsomagokToolStripMenuItem";
             this.ügyféltőlFelvehetőCsomagokToolStripMenuItem.Size = new System.Drawing.Size(291, 26);
             this.ügyféltőlFelvehetőCsomagokToolStripMenuItem.Text = "Ügyféltől felvehető csomagok";
+            this.ügyféltőlFelvehetőCsomagokToolStripMenuItem.Click += new System.EventHandler(this.ügyféltőlFelvehetőCsomagokToolStripMenuItem_Click);
             // 
             // felhasználókToolStripMenuItem
             // 
@@ -161,7 +161,7 @@
             // felhasználóListaToolStripMenuItem
             // 
             this.felhasználóListaToolStripMenuItem.Name = "felhasználóListaToolStripMenuItem";
-            this.felhasználóListaToolStripMenuItem.Size = new System.Drawing.Size(250, 26);
+            this.felhasználóListaToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.felhasználóListaToolStripMenuItem.Text = "Felhasználó Lista";
             this.felhasználóListaToolStripMenuItem.Click += new System.EventHandler(this.felhasználóListaToolStripMenuItem_Click);
             // 
@@ -169,22 +169,11 @@
             // 
             this.toolbar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.toolbar.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton2});
             this.toolbar.Location = new System.Drawing.Point(0, 28);
             this.toolbar.Name = "toolbar";
-            this.toolbar.Size = new System.Drawing.Size(1043, 27);
+            this.toolbar.Size = new System.Drawing.Size(1043, 25);
             this.toolbar.TabIndex = 1;
             this.toolbar.Text = "toolStrip1";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::transport_2.Properties.Resources.icon;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton2.Text = "toolStripButton2";
             // 
             // statusbar
             // 
@@ -227,8 +216,6 @@
             this.Load += new System.EventHandler(this.MainWindowForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.toolbar.ResumeLayout(false);
-            this.toolbar.PerformLayout();
             this.statusbar.ResumeLayout(false);
             this.statusbar.PerformLayout();
             this.ResumeLayout(false);
@@ -252,7 +239,6 @@
         private System.Windows.Forms.ToolStripMenuItem ügyféltőlFelvehetőCsomagokToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem felhasználókToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem felhasználóListaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.StatusStrip statusbar;
         private System.Windows.Forms.ToolStripStatusLabel statusbarLabel;
         private System.Windows.Forms.Panel panel1;

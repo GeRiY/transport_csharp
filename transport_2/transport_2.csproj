@@ -111,6 +111,7 @@
     <Compile Include="Models\package_transaction.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Partials\package-Partial.cs" />
     <Compile Include="Models\Partials\user-Partial.cs" />
     <Compile Include="Models\position.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -124,17 +125,34 @@
     <Compile Include="Models\user_role.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Presenters\packageToGetFromCustomerPresenter.cs" />
+    <Compile Include="Presenters\packagePresenter.cs" />
     <Compile Include="Presenters\userPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\packageToGetFromCustomerRepository.cs" />
+    <Compile Include="Repositories\packageOnMyNameRepository.cs" />
     <Compile Include="Repositories\userRepository.cs" />
     <Compile Include="ViewInterfaces\IDataGridList.cs" />
+    <Compile Include="ViewInterfaces\IPackageView.cs" />
     <Compile Include="ViewInterfaces\IUserView.cs" />
     <Compile Include="Views\MainWindowForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\MainWindowForm.Designer.cs">
       <DependentUpon>MainWindowForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\packageFromCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\packageFromCustomerForm.Designer.cs">
+      <DependentUpon>packageFromCustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\packageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\packageForm.Designer.cs">
+      <DependentUpon>packageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\userForm.cs">
       <SubType>Form</SubType>
@@ -154,6 +172,12 @@
     </Compile>
     <EmbeddedResource Include="Views\MainWindowForm.resx">
       <DependentUpon>MainWindowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\packageFromCustomerForm.resx">
+      <DependentUpon>packageFromCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\packageForm.resx">
+      <DependentUpon>packageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\userForm.resx">
       <DependentUpon>userForm.cs</DependentUpon>
@@ -183,7 +207,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icon.ico" />
     <None Include="Icons\check.png" />
     <None Include="Icons\login.png" />
     <None Include="Icons\logout.png" />
@@ -199,6 +222,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources\" />
     <Folder Include="SQL\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
