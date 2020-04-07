@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d7abf8d13af14359a9b73cb57338d069" Name="Diagram1">
+        <EntityTypeShape EntityType="transportModel.address" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="transportModel.courier" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="transportModel.fos_user" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="transportModel.package" Width="1.5" PointX="7.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="transportModel.package_route" Width="1.5" PointX="12" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="transportModel.package_status" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="transportModel.package_tag" Width="1.5" PointX="12.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="transportModel.package_transaction" Width="1.5" PointX="9.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="transportModel.position" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="transportModel.tag" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="transportModel.transfer_status" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="transportModel.user_role" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <AssociationConnector Association="transportModel.FK_462CE4F5D4E6F81" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_957A6479547A1B34" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_957A6479D4E6F81" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_97C0279E7E36A81B" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_DE686795C626D6EA" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_DE686795DB549EDF" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_DE686795FD8B3352" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_BFEC1FB7CF134C7C" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_CF134C7C8D93D649" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_DE686795CF134C7C" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_957A647957698A6A" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_DE686795939715CD" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_DE686795CF60E67C" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_45AB7C36DE686795" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_BFEC1FB7DE686795" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_DE6867951E13382F" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_DE686795389B783" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_DE68679545FB16C0" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_97C0279E723705D1" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_BFEC1FB745FB16C0" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_45AB7C36389B783" ManuallyRouted="false" />
+        <AssociationConnector Association="transportModel.FK_BFEC1FB71E13382F" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

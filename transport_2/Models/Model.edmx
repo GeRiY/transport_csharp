@@ -1,0 +1,1193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="transportModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="address">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="is_storage" Type="int" Nullable="false" />
+          <Property Name="street_and_number" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="zipcode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="courier">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user" Type="int" />
+        </EntityType>
+        <EntityType Name="fos_user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="180" Nullable="false" />
+          <Property Name="username_canonical" Type="varchar" MaxLength="180" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="180" Nullable="false" />
+          <Property Name="email_canonical" Type="varchar" MaxLength="180" Nullable="false" />
+          <Property Name="enabled" Type="bool" Nullable="false" />
+          <Property Name="salt" Type="varchar" MaxLength="255" />
+          <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="last_login" Type="datetime" Precision="0" />
+          <Property Name="confirmation_token" Type="varchar" MaxLength="180" />
+          <Property Name="password_requested_at" Type="datetime" Precision="0" />
+          <Property Name="roles" Type="longtext" Nullable="false" />
+          <Property Name="address" Type="int" />
+          <Property Name="role" Type="int" />
+          <Property Name="first_name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="storage" Type="int" />
+        </EntityType>
+        <EntityType Name="package">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="start_address" Type="int" />
+          <Property Name="target_address" Type="int" />
+          <Property Name="current_position" Type="int" />
+          <Property Name="package_status" Type="int" />
+          <Property Name="transfer_status" Type="int" />
+          <Property Name="courier" Type="int" />
+          <Property Name="handler" Type="int" />
+          <Property Name="width" Type="int" Nullable="false" />
+          <Property Name="request_date" Type="datetime" Precision="0" />
+          <Property Name="delivered_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="tag" Type="int" />
+          <Property Name="height" Type="int" Nullable="false" />
+          <Property Name="length" Type="int" Nullable="false" />
+          <Property Name="owner" Type="int" />
+        </EntityType>
+        <EntityType Name="package_route">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="next_position" Type="int" />
+          <Property Name="transaction" Type="int" />
+        </EntityType>
+        <EntityType Name="package_status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="package_tag">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="package" Type="int" />
+          <Property Name="tag" Type="int" />
+        </EntityType>
+        <EntityType Name="package_transaction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="package" Type="int" />
+          <Property Name="package_status" Type="int" />
+          <Property Name="transfer_status" Type="int" />
+          <Property Name="courier" Type="int" />
+          <Property Name="transaction_date" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="position">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="address" Type="int" />
+        </EntityType>
+        <EntityType Name="tag">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="transfer_status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_45AB7C36389B783">
+          <End Role="tag" Type="Self.tag" Multiplicity="0..1" />
+          <End Role="package_tag" Type="Self.package_tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tag">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package_tag">
+              <PropertyRef Name="tag" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_45AB7C36DE686795">
+          <End Role="package" Type="Self.package" Multiplicity="0..1" />
+          <End Role="package_tag" Type="Self.package_tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="package">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package_tag">
+              <PropertyRef Name="package" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_462CE4F5D4E6F81">
+          <End Role="address" Type="Self.address" Multiplicity="0..1" />
+          <End Role="position" Type="Self.position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="address">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="position">
+              <PropertyRef Name="address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_957A6479547A1B34">
+          <End Role="address" Type="Self.address" Multiplicity="0..1" />
+          <End Role="fos_user" Type="Self.fos_user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="address">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fos_user">
+              <PropertyRef Name="storage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_957A647957698A6A">
+          <End Role="user_role" Type="Self.user_role" Multiplicity="0..1" />
+          <End Role="fos_user" Type="Self.fos_user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fos_user">
+              <PropertyRef Name="role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_957A6479D4E6F81">
+          <End Role="address" Type="Self.address" Multiplicity="0..1" />
+          <End Role="fos_user" Type="Self.fos_user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="address">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fos_user">
+              <PropertyRef Name="address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_97C0279E723705D1">
+          <End Role="package_transaction" Type="Self.package_transaction" Multiplicity="0..1" />
+          <End Role="package_route" Type="Self.package_route" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="package_transaction">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package_route">
+              <PropertyRef Name="transaction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_97C0279E7E36A81B">
+          <End Role="address" Type="Self.address" Multiplicity="0..1" />
+          <End Role="package_route" Type="Self.package_route" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="address">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package_route">
+              <PropertyRef Name="next_position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BFEC1FB71E13382F">
+          <End Role="transfer_status" Type="Self.transfer_status" Multiplicity="0..1" />
+          <End Role="package_transaction" Type="Self.package_transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="transfer_status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package_transaction">
+              <PropertyRef Name="transfer_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BFEC1FB745FB16C0">
+          <End Role="package_status" Type="Self.package_status" Multiplicity="0..1" />
+          <End Role="package_transaction" Type="Self.package_transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="package_status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package_transaction">
+              <PropertyRef Name="package_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BFEC1FB7CF134C7C">
+          <End Role="courier" Type="Self.courier" Multiplicity="0..1" />
+          <End Role="package_transaction" Type="Self.package_transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courier">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package_transaction">
+              <PropertyRef Name="courier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BFEC1FB7DE686795">
+          <End Role="package" Type="Self.package" Multiplicity="0..1" />
+          <End Role="package_transaction" Type="Self.package_transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="package">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package_transaction">
+              <PropertyRef Name="package" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CF134C7C8D93D649">
+          <End Role="fos_user" Type="Self.fos_user" Multiplicity="0..1" />
+          <End Role="courier" Type="Self.courier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fos_user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="courier">
+              <PropertyRef Name="user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DE6867951E13382F">
+          <End Role="transfer_status" Type="Self.transfer_status" Multiplicity="0..1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="transfer_status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="transfer_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DE686795389B783">
+          <End Role="tag" Type="Self.tag" Multiplicity="0..1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tag">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="tag" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DE68679545FB16C0">
+          <End Role="package_status" Type="Self.package_status" Multiplicity="0..1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="package_status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="package_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DE686795939715CD">
+          <End Role="fos_user" Type="Self.fos_user" Multiplicity="0..1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fos_user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="handler" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DE686795C626D6EA">
+          <End Role="address" Type="Self.address" Multiplicity="0..1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="address">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="target_address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DE686795CF134C7C">
+          <End Role="courier" Type="Self.courier" Multiplicity="0..1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courier">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="courier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DE686795CF60E67C">
+          <End Role="fos_user" Type="Self.fos_user" Multiplicity="0..1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fos_user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="owner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DE686795DB549EDF">
+          <End Role="address" Type="Self.address" Multiplicity="0..1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="address">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="current_position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DE686795FD8B3352">
+          <End Role="address" Type="Self.address" Multiplicity="0..1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="address">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="start_address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="transportModelStoreContainer">
+          <EntitySet Name="address" EntityType="Self.address" Schema="transport_2" store:Type="Tables" />
+          <EntitySet Name="courier" EntityType="Self.courier" Schema="transport_2" store:Type="Tables" />
+          <EntitySet Name="fos_user" EntityType="Self.fos_user" Schema="transport_2" store:Type="Tables" />
+          <EntitySet Name="package" EntityType="Self.package" Schema="transport_2" store:Type="Tables" />
+          <EntitySet Name="package_route" EntityType="Self.package_route" Schema="transport_2" store:Type="Tables" />
+          <EntitySet Name="package_status" EntityType="Self.package_status" Schema="transport_2" store:Type="Tables" />
+          <EntitySet Name="package_tag" EntityType="Self.package_tag" Schema="transport_2" store:Type="Tables" />
+          <EntitySet Name="package_transaction" EntityType="Self.package_transaction" Schema="transport_2" store:Type="Tables" />
+          <EntitySet Name="position" EntityType="Self.position" Schema="transport_2" store:Type="Tables" />
+          <EntitySet Name="tag" EntityType="Self.tag" Schema="transport_2" store:Type="Tables" />
+          <EntitySet Name="transfer_status" EntityType="Self.transfer_status" Schema="transport_2" store:Type="Tables" />
+          <EntitySet Name="user_role" EntityType="Self.user_role" Schema="transport_2" store:Type="Tables" />
+          <AssociationSet Name="FK_45AB7C36389B783" Association="Self.FK_45AB7C36389B783">
+            <End Role="tag" EntitySet="tag" />
+            <End Role="package_tag" EntitySet="package_tag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_45AB7C36DE686795" Association="Self.FK_45AB7C36DE686795">
+            <End Role="package" EntitySet="package" />
+            <End Role="package_tag" EntitySet="package_tag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_462CE4F5D4E6F81" Association="Self.FK_462CE4F5D4E6F81">
+            <End Role="address" EntitySet="address" />
+            <End Role="position" EntitySet="position" />
+          </AssociationSet>
+          <AssociationSet Name="FK_957A6479547A1B34" Association="Self.FK_957A6479547A1B34">
+            <End Role="address" EntitySet="address" />
+            <End Role="fos_user" EntitySet="fos_user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_957A647957698A6A" Association="Self.FK_957A647957698A6A">
+            <End Role="user_role" EntitySet="user_role" />
+            <End Role="fos_user" EntitySet="fos_user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_957A6479D4E6F81" Association="Self.FK_957A6479D4E6F81">
+            <End Role="address" EntitySet="address" />
+            <End Role="fos_user" EntitySet="fos_user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_97C0279E723705D1" Association="Self.FK_97C0279E723705D1">
+            <End Role="package_transaction" EntitySet="package_transaction" />
+            <End Role="package_route" EntitySet="package_route" />
+          </AssociationSet>
+          <AssociationSet Name="FK_97C0279E7E36A81B" Association="Self.FK_97C0279E7E36A81B">
+            <End Role="address" EntitySet="address" />
+            <End Role="package_route" EntitySet="package_route" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BFEC1FB71E13382F" Association="Self.FK_BFEC1FB71E13382F">
+            <End Role="transfer_status" EntitySet="transfer_status" />
+            <End Role="package_transaction" EntitySet="package_transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BFEC1FB745FB16C0" Association="Self.FK_BFEC1FB745FB16C0">
+            <End Role="package_status" EntitySet="package_status" />
+            <End Role="package_transaction" EntitySet="package_transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BFEC1FB7CF134C7C" Association="Self.FK_BFEC1FB7CF134C7C">
+            <End Role="courier" EntitySet="courier" />
+            <End Role="package_transaction" EntitySet="package_transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BFEC1FB7DE686795" Association="Self.FK_BFEC1FB7DE686795">
+            <End Role="package" EntitySet="package" />
+            <End Role="package_transaction" EntitySet="package_transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CF134C7C8D93D649" Association="Self.FK_CF134C7C8D93D649">
+            <End Role="fos_user" EntitySet="fos_user" />
+            <End Role="courier" EntitySet="courier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DE6867951E13382F" Association="Self.FK_DE6867951E13382F">
+            <End Role="transfer_status" EntitySet="transfer_status" />
+            <End Role="package" EntitySet="package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DE686795389B783" Association="Self.FK_DE686795389B783">
+            <End Role="tag" EntitySet="tag" />
+            <End Role="package" EntitySet="package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DE68679545FB16C0" Association="Self.FK_DE68679545FB16C0">
+            <End Role="package_status" EntitySet="package_status" />
+            <End Role="package" EntitySet="package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DE686795939715CD" Association="Self.FK_DE686795939715CD">
+            <End Role="fos_user" EntitySet="fos_user" />
+            <End Role="package" EntitySet="package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DE686795C626D6EA" Association="Self.FK_DE686795C626D6EA">
+            <End Role="address" EntitySet="address" />
+            <End Role="package" EntitySet="package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DE686795CF134C7C" Association="Self.FK_DE686795CF134C7C">
+            <End Role="courier" EntitySet="courier" />
+            <End Role="package" EntitySet="package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DE686795CF60E67C" Association="Self.FK_DE686795CF60E67C">
+            <End Role="fos_user" EntitySet="fos_user" />
+            <End Role="package" EntitySet="package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DE686795DB549EDF" Association="Self.FK_DE686795DB549EDF">
+            <End Role="address" EntitySet="address" />
+            <End Role="package" EntitySet="package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DE686795FD8B3352" Association="Self.FK_DE686795FD8B3352">
+            <End Role="address" EntitySet="address" />
+            <End Role="package" EntitySet="package" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="transportModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="address">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="city" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="is_storage" Type="Int32" Nullable="false" />
+          <Property Name="street_and_number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="zipcode" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="position" Relationship="Self.FK_462CE4F5D4E6F81" FromRole="address" ToRole="position" />
+          <NavigationProperty Name="fos_user" Relationship="Self.FK_957A6479547A1B34" FromRole="address" ToRole="fos_user" />
+          <NavigationProperty Name="fos_user1" Relationship="Self.FK_957A6479D4E6F81" FromRole="address" ToRole="fos_user" />
+          <NavigationProperty Name="package_route" Relationship="Self.FK_97C0279E7E36A81B" FromRole="address" ToRole="package_route" />
+          <NavigationProperty Name="package" Relationship="Self.FK_DE686795C626D6EA" FromRole="address" ToRole="package" />
+          <NavigationProperty Name="package1" Relationship="Self.FK_DE686795DB549EDF" FromRole="address" ToRole="package" />
+          <NavigationProperty Name="package2" Relationship="Self.FK_DE686795FD8B3352" FromRole="address" ToRole="package" />
+        </EntityType>
+        <EntityType Name="courier">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user" Type="Int32" />
+          <NavigationProperty Name="package_transaction" Relationship="Self.FK_BFEC1FB7CF134C7C" FromRole="courier" ToRole="package_transaction" />
+          <NavigationProperty Name="fos_user" Relationship="Self.FK_CF134C7C8D93D649" FromRole="courier" ToRole="fos_user" />
+          <NavigationProperty Name="package" Relationship="Self.FK_DE686795CF134C7C" FromRole="courier" ToRole="package" />
+        </EntityType>
+        <EntityType Name="fos_user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="180" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="username_canonical" Type="String" MaxLength="180" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="180" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email_canonical" Type="String" MaxLength="180" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="enabled" Type="Boolean" Nullable="false" />
+          <Property Name="salt" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_login" Type="DateTime" />
+          <Property Name="confirmation_token" Type="String" MaxLength="180" FixedLength="false" Unicode="false" />
+          <Property Name="password_requested_at" Type="DateTime" />
+          <Property Name="roles" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="Int32" />
+          <Property Name="role" Type="Int32" />
+          <Property Name="first_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="storage" Type="Int32" />
+          <NavigationProperty Name="address1" Relationship="Self.FK_957A6479547A1B34" FromRole="fos_user" ToRole="address" />
+          <NavigationProperty Name="address2" Relationship="Self.FK_957A6479D4E6F81" FromRole="fos_user" ToRole="address" />
+          <NavigationProperty Name="courier" Relationship="Self.FK_CF134C7C8D93D649" FromRole="fos_user" ToRole="courier" />
+          <NavigationProperty Name="user_role" Relationship="Self.FK_957A647957698A6A" FromRole="fos_user" ToRole="user_role" />
+          <NavigationProperty Name="package" Relationship="Self.FK_DE686795939715CD" FromRole="fos_user" ToRole="package" />
+          <NavigationProperty Name="package1" Relationship="Self.FK_DE686795CF60E67C" FromRole="fos_user" ToRole="package" />
+        </EntityType>
+        <EntityType Name="package">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="start_address" Type="Int32" />
+          <Property Name="target_address" Type="Int32" />
+          <Property Name="current_position" Type="Int32" />
+          <Property Name="package_status" Type="Int32" />
+          <Property Name="transfer_status" Type="Int32" />
+          <Property Name="courier" Type="Int32" />
+          <Property Name="handler" Type="Int32" />
+          <Property Name="width" Type="Int32" Nullable="false" />
+          <Property Name="request_date" Type="DateTime" />
+          <Property Name="delivered_date" Type="DateTime" Nullable="false" />
+          <Property Name="tag" Type="Int32" />
+          <Property Name="height" Type="Int32" Nullable="false" />
+          <Property Name="length" Type="Int32" Nullable="false" />
+          <Property Name="owner" Type="Int32" />
+          <NavigationProperty Name="address" Relationship="Self.FK_DE686795C626D6EA" FromRole="package" ToRole="address" />
+          <NavigationProperty Name="address1" Relationship="Self.FK_DE686795DB549EDF" FromRole="package" ToRole="address" />
+          <NavigationProperty Name="address2" Relationship="Self.FK_DE686795FD8B3352" FromRole="package" ToRole="address" />
+          <NavigationProperty Name="courier1" Relationship="Self.FK_DE686795CF134C7C" FromRole="package" ToRole="courier" />
+          <NavigationProperty Name="fos_user" Relationship="Self.FK_DE686795939715CD" FromRole="package" ToRole="fos_user" />
+          <NavigationProperty Name="fos_user1" Relationship="Self.FK_DE686795CF60E67C" FromRole="package" ToRole="fos_user" />
+          <NavigationProperty Name="package_tag" Relationship="Self.FK_45AB7C36DE686795" FromRole="package" ToRole="package_tag" />
+          <NavigationProperty Name="package_transaction" Relationship="Self.FK_BFEC1FB7DE686795" FromRole="package" ToRole="package_transaction" />
+          <NavigationProperty Name="transfer_status1" Relationship="Self.FK_DE6867951E13382F" FromRole="package" ToRole="transfer_status" />
+          <NavigationProperty Name="tag1" Relationship="Self.FK_DE686795389B783" FromRole="package" ToRole="tag" />
+          <NavigationProperty Name="package_status1" Relationship="Self.FK_DE68679545FB16C0" FromRole="package" ToRole="package_status" />
+        </EntityType>
+        <EntityType Name="package_route">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="next_position" Type="Int32" />
+          <Property Name="transaction" Type="Int32" />
+          <NavigationProperty Name="address" Relationship="Self.FK_97C0279E7E36A81B" FromRole="package_route" ToRole="address" />
+          <NavigationProperty Name="package_transaction" Relationship="Self.FK_97C0279E723705D1" FromRole="package_route" ToRole="package_transaction" />
+        </EntityType>
+        <EntityType Name="package_status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="package" Relationship="Self.FK_DE68679545FB16C0" FromRole="package_status" ToRole="package" />
+          <NavigationProperty Name="package_transaction" Relationship="Self.FK_BFEC1FB745FB16C0" FromRole="package_status" ToRole="package_transaction" />
+        </EntityType>
+        <EntityType Name="package_tag">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="package" Type="Int32" />
+          <Property Name="tag" Type="Int32" />
+          <NavigationProperty Name="package1" Relationship="Self.FK_45AB7C36DE686795" FromRole="package_tag" ToRole="package" />
+          <NavigationProperty Name="tag1" Relationship="Self.FK_45AB7C36389B783" FromRole="package_tag" ToRole="tag" />
+        </EntityType>
+        <EntityType Name="package_transaction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="package" Type="Int32" />
+          <Property Name="package_status" Type="Int32" />
+          <Property Name="transfer_status" Type="Int32" />
+          <Property Name="courier" Type="Int32" />
+          <Property Name="transaction_date" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="courier1" Relationship="Self.FK_BFEC1FB7CF134C7C" FromRole="package_transaction" ToRole="courier" />
+          <NavigationProperty Name="package1" Relationship="Self.FK_BFEC1FB7DE686795" FromRole="package_transaction" ToRole="package" />
+          <NavigationProperty Name="package_route" Relationship="Self.FK_97C0279E723705D1" FromRole="package_transaction" ToRole="package_route" />
+          <NavigationProperty Name="package_status1" Relationship="Self.FK_BFEC1FB745FB16C0" FromRole="package_transaction" ToRole="package_status" />
+          <NavigationProperty Name="transfer_status1" Relationship="Self.FK_BFEC1FB71E13382F" FromRole="package_transaction" ToRole="transfer_status" />
+        </EntityType>
+        <EntityType Name="position">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="address" Type="Int32" />
+          <NavigationProperty Name="address1" Relationship="Self.FK_462CE4F5D4E6F81" FromRole="position" ToRole="address" />
+        </EntityType>
+        <EntityType Name="tag">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="package" Relationship="Self.FK_DE686795389B783" FromRole="tag" ToRole="package" />
+          <NavigationProperty Name="package_tag" Relationship="Self.FK_45AB7C36389B783" FromRole="tag" ToRole="package_tag" />
+        </EntityType>
+        <EntityType Name="transfer_status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="package" Relationship="Self.FK_DE6867951E13382F" FromRole="transfer_status" ToRole="package" />
+          <NavigationProperty Name="package_transaction" Relationship="Self.FK_BFEC1FB71E13382F" FromRole="transfer_status" ToRole="package_transaction" />
+        </EntityType>
+        <EntityType Name="user_role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="fos_user" Relationship="Self.FK_957A647957698A6A" FromRole="user_role" ToRole="fos_user" />
+        </EntityType>
+        <Association Name="FK_462CE4F5D4E6F81">
+          <End Role="address" Type="Self.address" Multiplicity="0..1" />
+          <End Role="position" Type="Self.position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="address">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="position">
+              <PropertyRef Name="address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_957A6479547A1B34">
+          <End Role="address" Type="Self.address" Multiplicity="0..1" />
+          <End Role="fos_user" Type="Self.fos_user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="address">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fos_user">
+              <PropertyRef Name="storage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_957A6479D4E6F81">
+          <End Role="address" Type="Self.address" Multiplicity="0..1" />
+          <End Role="fos_user" Type="Self.fos_user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="address">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fos_user">
+              <PropertyRef Name="address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_97C0279E7E36A81B">
+          <End Role="address" Type="Self.address" Multiplicity="0..1" />
+          <End Role="package_route" Type="Self.package_route" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="address">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package_route">
+              <PropertyRef Name="next_position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DE686795C626D6EA">
+          <End Role="address" Type="Self.address" Multiplicity="0..1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="address">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="target_address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DE686795DB549EDF">
+          <End Role="address" Type="Self.address" Multiplicity="0..1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="address">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="current_position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DE686795FD8B3352">
+          <End Role="address" Type="Self.address" Multiplicity="0..1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="address">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="start_address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BFEC1FB7CF134C7C">
+          <End Role="courier" Type="Self.courier" Multiplicity="0..1" />
+          <End Role="package_transaction" Type="Self.package_transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courier">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package_transaction">
+              <PropertyRef Name="courier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CF134C7C8D93D649">
+          <End Role="fos_user" Type="Self.fos_user" Multiplicity="0..1" />
+          <End Role="courier" Type="Self.courier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fos_user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="courier">
+              <PropertyRef Name="user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DE686795CF134C7C">
+          <End Role="courier" Type="Self.courier" Multiplicity="0..1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courier">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="courier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_957A647957698A6A">
+          <End Role="user_role" Type="Self.user_role" Multiplicity="0..1" />
+          <End Role="fos_user" Type="Self.fos_user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fos_user">
+              <PropertyRef Name="role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DE686795939715CD">
+          <End Role="fos_user" Type="Self.fos_user" Multiplicity="0..1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fos_user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="handler" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DE686795CF60E67C">
+          <End Role="fos_user" Type="Self.fos_user" Multiplicity="0..1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fos_user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="owner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_45AB7C36DE686795">
+          <End Role="package" Type="Self.package" Multiplicity="0..1" />
+          <End Role="package_tag" Type="Self.package_tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="package">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package_tag">
+              <PropertyRef Name="package" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BFEC1FB7DE686795">
+          <End Role="package" Type="Self.package" Multiplicity="0..1" />
+          <End Role="package_transaction" Type="Self.package_transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="package">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package_transaction">
+              <PropertyRef Name="package" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DE6867951E13382F">
+          <End Role="transfer_status" Type="Self.transfer_status" Multiplicity="0..1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="transfer_status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="transfer_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DE686795389B783">
+          <End Role="tag" Type="Self.tag" Multiplicity="0..1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tag">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="tag" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DE68679545FB16C0">
+          <End Role="package_status" Type="Self.package_status" Multiplicity="0..1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="package_status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="package_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_97C0279E723705D1">
+          <End Role="package_transaction" Type="Self.package_transaction" Multiplicity="0..1" />
+          <End Role="package_route" Type="Self.package_route" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="package_transaction">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package_route">
+              <PropertyRef Name="transaction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BFEC1FB745FB16C0">
+          <End Role="package_status" Type="Self.package_status" Multiplicity="0..1" />
+          <End Role="package_transaction" Type="Self.package_transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="package_status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package_transaction">
+              <PropertyRef Name="package_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_45AB7C36389B783">
+          <End Role="tag" Type="Self.tag" Multiplicity="0..1" />
+          <End Role="package_tag" Type="Self.package_tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tag">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package_tag">
+              <PropertyRef Name="tag" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BFEC1FB71E13382F">
+          <End Role="transfer_status" Type="Self.transfer_status" Multiplicity="0..1" />
+          <End Role="package_transaction" Type="Self.package_transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="transfer_status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="package_transaction">
+              <PropertyRef Name="transfer_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="transportEntityContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="address" EntityType="Self.address" />
+          <EntitySet Name="courier" EntityType="Self.courier" />
+          <EntitySet Name="fos_user" EntityType="Self.fos_user" />
+          <EntitySet Name="package" EntityType="Self.package" />
+          <EntitySet Name="package_route" EntityType="Self.package_route" />
+          <EntitySet Name="package_status" EntityType="Self.package_status" />
+          <EntitySet Name="package_tag" EntityType="Self.package_tag" />
+          <EntitySet Name="package_transaction" EntityType="Self.package_transaction" />
+          <EntitySet Name="position" EntityType="Self.position" />
+          <EntitySet Name="tag" EntityType="Self.tag" />
+          <EntitySet Name="transfer_status" EntityType="Self.transfer_status" />
+          <EntitySet Name="user_role" EntityType="Self.user_role" />
+          <AssociationSet Name="FK_462CE4F5D4E6F81" Association="Self.FK_462CE4F5D4E6F81">
+            <End Role="address" EntitySet="address" />
+            <End Role="position" EntitySet="position" />
+          </AssociationSet>
+          <AssociationSet Name="FK_957A6479547A1B34" Association="Self.FK_957A6479547A1B34">
+            <End Role="address" EntitySet="address" />
+            <End Role="fos_user" EntitySet="fos_user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_957A6479D4E6F81" Association="Self.FK_957A6479D4E6F81">
+            <End Role="address" EntitySet="address" />
+            <End Role="fos_user" EntitySet="fos_user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_97C0279E7E36A81B" Association="Self.FK_97C0279E7E36A81B">
+            <End Role="address" EntitySet="address" />
+            <End Role="package_route" EntitySet="package_route" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DE686795C626D6EA" Association="Self.FK_DE686795C626D6EA">
+            <End Role="address" EntitySet="address" />
+            <End Role="package" EntitySet="package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DE686795DB549EDF" Association="Self.FK_DE686795DB549EDF">
+            <End Role="address" EntitySet="address" />
+            <End Role="package" EntitySet="package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DE686795FD8B3352" Association="Self.FK_DE686795FD8B3352">
+            <End Role="address" EntitySet="address" />
+            <End Role="package" EntitySet="package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BFEC1FB7CF134C7C" Association="Self.FK_BFEC1FB7CF134C7C">
+            <End Role="courier" EntitySet="courier" />
+            <End Role="package_transaction" EntitySet="package_transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CF134C7C8D93D649" Association="Self.FK_CF134C7C8D93D649">
+            <End Role="fos_user" EntitySet="fos_user" />
+            <End Role="courier" EntitySet="courier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DE686795CF134C7C" Association="Self.FK_DE686795CF134C7C">
+            <End Role="courier" EntitySet="courier" />
+            <End Role="package" EntitySet="package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_957A647957698A6A" Association="Self.FK_957A647957698A6A">
+            <End Role="user_role" EntitySet="user_role" />
+            <End Role="fos_user" EntitySet="fos_user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DE686795939715CD" Association="Self.FK_DE686795939715CD">
+            <End Role="fos_user" EntitySet="fos_user" />
+            <End Role="package" EntitySet="package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DE686795CF60E67C" Association="Self.FK_DE686795CF60E67C">
+            <End Role="fos_user" EntitySet="fos_user" />
+            <End Role="package" EntitySet="package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_45AB7C36DE686795" Association="Self.FK_45AB7C36DE686795">
+            <End Role="package" EntitySet="package" />
+            <End Role="package_tag" EntitySet="package_tag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BFEC1FB7DE686795" Association="Self.FK_BFEC1FB7DE686795">
+            <End Role="package" EntitySet="package" />
+            <End Role="package_transaction" EntitySet="package_transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DE6867951E13382F" Association="Self.FK_DE6867951E13382F">
+            <End Role="transfer_status" EntitySet="transfer_status" />
+            <End Role="package" EntitySet="package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DE686795389B783" Association="Self.FK_DE686795389B783">
+            <End Role="tag" EntitySet="tag" />
+            <End Role="package" EntitySet="package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DE68679545FB16C0" Association="Self.FK_DE68679545FB16C0">
+            <End Role="package_status" EntitySet="package_status" />
+            <End Role="package" EntitySet="package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_97C0279E723705D1" Association="Self.FK_97C0279E723705D1">
+            <End Role="package_transaction" EntitySet="package_transaction" />
+            <End Role="package_route" EntitySet="package_route" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BFEC1FB745FB16C0" Association="Self.FK_BFEC1FB745FB16C0">
+            <End Role="package_status" EntitySet="package_status" />
+            <End Role="package_transaction" EntitySet="package_transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_45AB7C36389B783" Association="Self.FK_45AB7C36389B783">
+            <End Role="tag" EntitySet="tag" />
+            <End Role="package_tag" EntitySet="package_tag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BFEC1FB71E13382F" Association="Self.FK_BFEC1FB71E13382F">
+            <End Role="transfer_status" EntitySet="transfer_status" />
+            <End Role="package_transaction" EntitySet="package_transaction" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="transportModelStoreContainer" CdmEntityContainer="transportEntityContext">
+          <EntitySetMapping Name="address">
+            <EntityTypeMapping TypeName="transportModel.address">
+              <MappingFragment StoreEntitySet="address">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="is_storage" ColumnName="is_storage" />
+                <ScalarProperty Name="street_and_number" ColumnName="street_and_number" />
+                <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="courier">
+            <EntityTypeMapping TypeName="transportModel.courier">
+              <MappingFragment StoreEntitySet="courier">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user" ColumnName="user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fos_user">
+            <EntityTypeMapping TypeName="transportModel.fos_user">
+              <MappingFragment StoreEntitySet="fos_user">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="username_canonical" ColumnName="username_canonical" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="email_canonical" ColumnName="email_canonical" />
+                <ScalarProperty Name="enabled" ColumnName="enabled" />
+                <ScalarProperty Name="salt" ColumnName="salt" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="last_login" ColumnName="last_login" />
+                <ScalarProperty Name="confirmation_token" ColumnName="confirmation_token" />
+                <ScalarProperty Name="password_requested_at" ColumnName="password_requested_at" />
+                <ScalarProperty Name="roles" ColumnName="roles" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="storage" ColumnName="storage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="package">
+            <EntityTypeMapping TypeName="transportModel.package">
+              <MappingFragment StoreEntitySet="package">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="start_address" ColumnName="start_address" />
+                <ScalarProperty Name="target_address" ColumnName="target_address" />
+                <ScalarProperty Name="current_position" ColumnName="current_position" />
+                <ScalarProperty Name="package_status" ColumnName="package_status" />
+                <ScalarProperty Name="transfer_status" ColumnName="transfer_status" />
+                <ScalarProperty Name="courier" ColumnName="courier" />
+                <ScalarProperty Name="handler" ColumnName="handler" />
+                <ScalarProperty Name="width" ColumnName="width" />
+                <ScalarProperty Name="request_date" ColumnName="request_date" />
+                <ScalarProperty Name="delivered_date" ColumnName="delivered_date" />
+                <ScalarProperty Name="tag" ColumnName="tag" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="length" ColumnName="length" />
+                <ScalarProperty Name="owner" ColumnName="owner" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="package_route">
+            <EntityTypeMapping TypeName="transportModel.package_route">
+              <MappingFragment StoreEntitySet="package_route">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="next_position" ColumnName="next_position" />
+                <ScalarProperty Name="transaction" ColumnName="transaction" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="package_status">
+            <EntityTypeMapping TypeName="transportModel.package_status">
+              <MappingFragment StoreEntitySet="package_status">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="package_tag">
+            <EntityTypeMapping TypeName="transportModel.package_tag">
+              <MappingFragment StoreEntitySet="package_tag">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="package" ColumnName="package" />
+                <ScalarProperty Name="tag" ColumnName="tag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="package_transaction">
+            <EntityTypeMapping TypeName="transportModel.package_transaction">
+              <MappingFragment StoreEntitySet="package_transaction">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="package" ColumnName="package" />
+                <ScalarProperty Name="package_status" ColumnName="package_status" />
+                <ScalarProperty Name="transfer_status" ColumnName="transfer_status" />
+                <ScalarProperty Name="courier" ColumnName="courier" />
+                <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="position">
+            <EntityTypeMapping TypeName="transportModel.position">
+              <MappingFragment StoreEntitySet="position">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tag">
+            <EntityTypeMapping TypeName="transportModel.tag">
+              <MappingFragment StoreEntitySet="tag">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="transfer_status">
+            <EntityTypeMapping TypeName="transportModel.transfer_status">
+              <MappingFragment StoreEntitySet="transfer_status">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_role">
+            <EntityTypeMapping TypeName="transportModel.user_role">
+              <MappingFragment StoreEntitySet="user_role">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
