@@ -132,5 +132,20 @@ namespace transport_2.Views
             packageForm.Show();
             //MainWindowForm.hide();
         }
+
+        private void transferstatusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Form childForm = new userForm();
+            //childForm.MdiParent = this;
+            //childForm.Show();
+            panel1.Controls.Clear();
+            Form trasferStatusForm = new trasferStatusForm();
+            trasferStatusForm.FormBorderStyle = FormBorderStyle.None;
+            trasferStatusForm.AutoScroll = true;
+            trasferStatusForm.TopLevel = false;
+            panel1.Controls.Add(trasferStatusForm);
+            trasferStatusForm.Show();
+            //MainWindowForm.hide();
+        }
     }
 }

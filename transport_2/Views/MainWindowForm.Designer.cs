@@ -36,11 +36,6 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolbarButton = new System.Windows.Forms.ToolStripMenuItem();
             this.statusbarButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.csomagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nevemenLévőCsomagokToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ügyféltőlFelvehetőCsomagokToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.felhasználókToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.felhasználóListaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolbar = new System.Windows.Forms.ToolStrip();
             this.statusbar = new System.Windows.Forms.StatusStrip();
             this.statusbarLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -55,9 +50,7 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.viewToolStripMenuItem,
-            this.csomagToolStripMenuItem,
-            this.felhasználókToolStripMenuItem});
+            this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -80,20 +73,20 @@
             // 
             this.bejelentkezésToolStripMenuItem.Image = global::transport_2.Properties.Resources.login;
             this.bejelentkezésToolStripMenuItem.Name = "bejelentkezésToolStripMenuItem";
-            this.bejelentkezésToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.bejelentkezésToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.bejelentkezésToolStripMenuItem.Text = "Bejelentkezés";
             // 
             // kijelentkezésToolStripMenuItem
             // 
             this.kijelentkezésToolStripMenuItem.Image = global::transport_2.Properties.Resources.logout;
             this.kijelentkezésToolStripMenuItem.Name = "kijelentkezésToolStripMenuItem";
-            this.kijelentkezésToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.kijelentkezésToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.kijelentkezésToolStripMenuItem.Text = "Kijelentkezés";
             // 
             // kilépélsToolStripMenuItem
             // 
             this.kilépélsToolStripMenuItem.Name = "kilépélsToolStripMenuItem";
-            this.kilépélsToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.kilépélsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.kilépélsToolStripMenuItem.Text = "Kilépés";
             this.kilépélsToolStripMenuItem.Click += new System.EventHandler(this.kilépélsToolStripMenuItem_Click);
             // 
@@ -110,7 +103,7 @@
             // 
             this.toolbarButton.Image = global::transport_2.Properties.Resources.check;
             this.toolbarButton.Name = "toolbarButton";
-            this.toolbarButton.Size = new System.Drawing.Size(158, 26);
+            this.toolbarButton.Size = new System.Drawing.Size(224, 26);
             this.toolbarButton.Text = "Toolbar";
             this.toolbarButton.Click += new System.EventHandler(this.toolbarToolStripMenuItem_Click);
             // 
@@ -118,52 +111,9 @@
             // 
             this.statusbarButton.Image = global::transport_2.Properties.Resources.check;
             this.statusbarButton.Name = "statusbarButton";
-            this.statusbarButton.Size = new System.Drawing.Size(158, 26);
+            this.statusbarButton.Size = new System.Drawing.Size(224, 26);
             this.statusbarButton.Text = "Status Bar";
             this.statusbarButton.Click += new System.EventHandler(this.statusBarToolStripMenuItem_Click);
-            // 
-            // csomagToolStripMenuItem
-            // 
-            this.csomagToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.csomagToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nevemenLévőCsomagokToolStripMenuItem,
-            this.ügyféltőlFelvehetőCsomagokToolStripMenuItem});
-            this.csomagToolStripMenuItem.Name = "csomagToolStripMenuItem";
-            this.csomagToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
-            this.csomagToolStripMenuItem.Text = "Csomagok";
-            this.csomagToolStripMenuItem.Click += new System.EventHandler(this.csomagToolStripMenuItem_Click);
-            // 
-            // nevemenLévőCsomagokToolStripMenuItem
-            // 
-            this.nevemenLévőCsomagokToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.nevemenLévőCsomagokToolStripMenuItem.Name = "nevemenLévőCsomagokToolStripMenuItem";
-            this.nevemenLévőCsomagokToolStripMenuItem.Size = new System.Drawing.Size(291, 26);
-            this.nevemenLévőCsomagokToolStripMenuItem.Text = "Nevemen lévő csomagok";
-            this.nevemenLévőCsomagokToolStripMenuItem.Click += new System.EventHandler(this.nevemenLévőCsomagokToolStripMenuItem_Click);
-            // 
-            // ügyféltőlFelvehetőCsomagokToolStripMenuItem
-            // 
-            this.ügyféltőlFelvehetőCsomagokToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.ügyféltőlFelvehetőCsomagokToolStripMenuItem.Name = "ügyféltőlFelvehetőCsomagokToolStripMenuItem";
-            this.ügyféltőlFelvehetőCsomagokToolStripMenuItem.Size = new System.Drawing.Size(291, 26);
-            this.ügyféltőlFelvehetőCsomagokToolStripMenuItem.Text = "Ügyféltől felvehető csomagok";
-            this.ügyféltőlFelvehetőCsomagokToolStripMenuItem.Click += new System.EventHandler(this.ügyféltőlFelvehetőCsomagokToolStripMenuItem_Click);
-            // 
-            // felhasználókToolStripMenuItem
-            // 
-            this.felhasználókToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.felhasználóListaToolStripMenuItem});
-            this.felhasználókToolStripMenuItem.Name = "felhasználókToolStripMenuItem";
-            this.felhasználókToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
-            this.felhasználókToolStripMenuItem.Text = "Felhasználók";
-            this.felhasználókToolStripMenuItem.Click += new System.EventHandler(this.felhasználókToolStripMenuItem_Click);
-            // 
-            // felhasználóListaToolStripMenuItem
-            // 
-            this.felhasználóListaToolStripMenuItem.Name = "felhasználóListaToolStripMenuItem";
-            this.felhasználóListaToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
-            this.felhasználóListaToolStripMenuItem.Text = "Felhasználó Lista";
-            this.felhasználóListaToolStripMenuItem.Click += new System.EventHandler(this.felhasználóListaToolStripMenuItem_Click);
             // 
             // toolbar
             // 
@@ -234,11 +184,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolbarButton;
         private System.Windows.Forms.ToolStripMenuItem statusbarButton;
         private System.Windows.Forms.ToolStrip toolbar;
-        private System.Windows.Forms.ToolStripMenuItem csomagToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nevemenLévőCsomagokToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ügyféltőlFelvehetőCsomagokToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem felhasználókToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem felhasználóListaToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusbar;
         private System.Windows.Forms.ToolStripStatusLabel statusbarLabel;
         private System.Windows.Forms.Panel panel1;
